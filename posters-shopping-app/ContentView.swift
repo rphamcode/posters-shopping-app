@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
       @StateObject var posterModel: PosterViewModel = .init()
+      @StateObject var cartModel: CartViewModel = .init()
       
       @Namespace var animation
       
@@ -18,7 +19,7 @@ struct ContentView: View {
       
       var body: some View {
             TabView(selection: $posterModel.currentTab) {
-                  HomeView(animation: animation)
+                  HomeView(cartModel: cartModel, animation: animation)
                         .environmentObject(posterModel)
                         .tag(Tab.home)
                         .setUpTab()
@@ -27,11 +28,11 @@ struct ContentView: View {
                         .tag(Tab.favorite)
                         .setUpTab()
                   
-                  Text("Cart")
-                        .tag(Tab.cart)
-                        .setUpTab()
+                  CartView(cartModel: cartModel)
+                      .environmentObject(posterModel)
+                      .tag(Tab.cart)
+                      .setUpTab()
                   
-            
                   Text("Profile")
                         .tag(Tab.profile)
                         .setUpTab()
@@ -42,7 +43,7 @@ struct ContentView: View {
             }
             .overlay {
                   if let poster = posterModel.currentActiveItem, posterModel.showDetailView {
-                        DetailView(poster: poster, animation: animation)
+                        DetailView(poster: poster, animation: animation, cartModel: cartModel)
                               .environmentObject(posterModel)
                               .transition(.offset(x: 1, y: 1))
                   }

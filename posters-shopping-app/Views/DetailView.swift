@@ -12,6 +12,7 @@ struct DetailView: View {
       var animation: Namespace.ID
       
       @EnvironmentObject var posterModel: PosterViewModel
+      @ObservedObject var cartModel: CartViewModel
       
       @State var showDetailContent: Bool = false
       @State var cartCount: Int = 0
@@ -99,7 +100,7 @@ struct DetailView: View {
                                   .scaleEffect(0.8)
                             }
                             
-                            Text("")
+                            Text("Crafted with a keen eye for detail and an unwavering commitment to quality.")
                                   .font(.callout)
                                   .foregroundColor(.gray)
                                   .multilineTextAlignment(.leading)
@@ -145,7 +146,7 @@ struct DetailView: View {
                                   Spacer()
                                   
                                   Button {
-                                        
+                                        cartModel.addToCart(poster: poster)
                                   } label: {
                                         Text("Buy Now")
                                               .fontWeight(.semibold)

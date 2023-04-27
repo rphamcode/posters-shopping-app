@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
       @EnvironmentObject var posterModel: PosterViewModel
+      @ObservedObject var cartModel: CartViewModel
+      
+      @State private var searchText = ""
       
       var animation: Namespace.ID
       
@@ -18,11 +21,8 @@ struct HomeView: View {
           ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
                       VStack(alignment: .leading, spacing: 8) {
-                            Text("Best Poster")
+                            Text("Poster City")
                                   .font(.title.bold())
-                            
-                            Text("Great Choice!")
-                                  .font(.callout)
                       }
                       .foregroundColor(Color("Black"))
                       .frame(maxWidth: .infinity,alignment: .leading)
@@ -36,7 +36,7 @@ struct HomeView: View {
                                         .frame(width: 25, height: 25)
                                         .foregroundColor(black)
                                   
-                                  TextField("Search", text: .constant(""))
+                                  TextField("Search", text: $searchText)
                             }
                             .padding(.horizontal)
                             .padding(.vertical,12)
@@ -64,8 +64,19 @@ struct HomeView: View {
                       
                       CustomMenu()
                       
-                      ForEach(posters) { poster in
-                            CardView(poster: poster)
+                      if !searchText.isEmpty {
+                            let filteredPosters = posters.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+                            if !filteredPosters.isEmpty {
+                                  SearchResultView(cartModel: cartModel, posters: filteredPosters, animation: animation)
+                            } else {
+                                  Text("No posters found")
+                                        .font(.callout)
+                                        .foregroundColor(.gray)
+                            }
+                      } else {
+                            ForEach(posters) { poster in
+                                  CardView(cartModel: cartModel, poster: poster, animation: animation)
+                            }
                       }
                 }
                 .padding()
@@ -74,111 +85,14 @@ struct HomeView: View {
     }
       
       @ViewBuilder
-      func CardView(poster: Poster) -> some View {
-            HStack(spacing: 12) {
-                  Group {
-                        if posterModel.currentActiveItem?.id == poster.id && posterModel.showDetailView {
-                              Image(poster.image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .opacity(0)
-                        } else {
-                              Image(poster.image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .matchedGeometryEffect(id: poster.id + "IMAGE", in: animation)
-                        }
-                  }
-                  .frame(width: 120)
-                  .padding()
-                  .background {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                              .fill(Color("CardBG"))
-                  }
-                  
-                  VStack(alignment: .leading, spacing: 10) {
-                        Group {
-                              if posterModel.currentActiveItem?.id == poster.id && posterModel.showDetailView{
-                                    Text(poster.title)
-                                          .fontWeight(.bold)
-                                          .foregroundColor(black)
-                                          .opacity(0)
-                                    
-                                    Text("by RP")
-                                          .font(.caption2.bold())
-                                          .foregroundColor(.gray)
-                                          .padding(.top,-5)
-                                          .opacity(0)
-                              } else {
-                                    Text(poster.title)
-                                          .fontWeight(.bold)
-                                          .foregroundColor(black)
-                                          .matchedGeometryEffect(id: poster.id + "TITLE", in: animation)
-                                    
-                                    Text("by RP")
-                                          .font(.caption2.bold())
-                                          .foregroundColor(.gray)
-                                          .matchedGeometryEffect(id: poster.id + "SUBTITLE", in: animation)
-                                          .padding(.top,-5)
-                              }
-                        }
-                        
-                        Text(poster.subTitle)
-                              .font(.system(size: 14))
-                              .foregroundColor(black.opacity(0.8))
-                        
-                        HStack {
-                              Text(poster.price)
-                                    .font(.title3.bold())
-                                    .foregroundColor(black)
-                              
-                              Spacer()
-                              
-                              Button {
-                                    
-                              } label: {
-                                    Text("Buy")
-                                          .font(.callout)
-                                          .fontWeight(.semibold)
-                                          .foregroundColor(.white)
-                                          .padding(.vertical, 8)
-                                          .padding(.horizontal, 20)
-                                          .background {
-                                                Capsule()
-                                                      .fill(Color("Orange"))
-                                          }
-                              }
-                              .scaleEffect(0.9)
-                        }
-                        .offset(y: 10)
-                  }
-                  .padding(.vertical, 10)
-                  .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .topLeading)
-            }
-            .padding(10)
-            .background {
-                  RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .fill(.white)
-                        .shadow(color: black.opacity(0.08), radius: 5, x: 5, y: 5)
-            }
-            .onTapGesture(perform: {
-                  withAnimation(.easeInOut) {
-                        posterModel.currentActiveItem = poster
-                        posterModel.showDetailView = true
-                  }
-            })
-            .padding(.bottom, 6)
-      }
-      
-      @ViewBuilder
       func CustomMenu() -> some View {
             HStack(spacing: 0) {
-                  ForEach(["All","King Bear", "Gangster Penguin", "Playboy Lion", "Spy Raccoon"], id: \.self) { menu in
+                  ForEach(["All", "16 x 16", "32 x 32", "64 x 64", "128 x 128"], id: \.self) { menu in
                         Text(menu)
                               .font(.callout)
                               .fontWeight(.semibold)
                               .foregroundColor(posterModel.currentMenu != menu ? black : .white)
-                              .padding(.vertical,8)
+                              .padding(.vertical, 8)
                               .frame(maxWidth: .infinity)
                               .background {
                                     if posterModel.currentMenu == menu {
@@ -195,8 +109,8 @@ struct HomeView: View {
                               }
                   }
             }
-            .padding(.top,10)
-            .padding(.bottom,20)
+            .padding(.top, 10)
+            .padding(.bottom, 20)
       }
 }
 
