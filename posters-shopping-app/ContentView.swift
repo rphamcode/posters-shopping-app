@@ -24,18 +24,10 @@ struct ContentView: View {
                         .tag(Tab.home)
                         .setUpTab()
                   
-                  Text("Favorite")
-                        .tag(Tab.favorite)
-                        .setUpTab()
-                  
                   CartView(cartModel: cartModel)
                       .environmentObject(posterModel)
                       .tag(Tab.cart)
                       .setUpTab()
-                  
-                  Text("Profile")
-                        .tag(Tab.profile)
-                        .setUpTab()
             }
             .overlay(alignment: .bottom) {
                   CustomTabBarView(currentTab: $posterModel.currentTab, animation: animation)

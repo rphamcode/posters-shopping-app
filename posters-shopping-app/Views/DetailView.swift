@@ -42,18 +42,6 @@ struct DetailView: View {
                             }
                             
                             Spacer()
-                            
-                            Button {
-                                  
-                            } label: {
-                                  Image(systemName: "suit.heart.fill")
-                                        .foregroundColor(.red)
-                                        .padding(12)
-                                        .background {
-                                              RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                                    .fill(.white)
-                                        }
-                            }
                       }
                       .padding()
                       .opacity(showDetailContent ? 1 : 0)

@@ -9,7 +9,7 @@ import Foundation
 
 enum Tab: String, CaseIterable {
       case home = "Home"
-      case favorite = "Star"
+      // case favorite = "Star"
       case cart = "Cart"
-      case profile = "Profile"
+      // case profile = "Profile"
 }

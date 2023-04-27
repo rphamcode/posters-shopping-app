@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Poster: Identifiable {
+struct Poster: Identifiable, Hashable {
       var id: String = UUID().uuidString
       var title: String
       var image: String

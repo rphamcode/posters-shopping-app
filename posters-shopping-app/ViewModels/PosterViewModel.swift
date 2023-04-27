@@ -12,4 +12,5 @@ class PosterViewModel: ObservableObject {
       @Published var currentMenu: String = "All"
       @Published var showDetailView: Bool = false
       @Published var currentActiveItem: Poster?
+      @Published var cartItems: [Poster: Int] = [:]
 }
