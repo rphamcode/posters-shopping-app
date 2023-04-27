@@ -14,7 +14,6 @@ struct DetailView: View {
       @EnvironmentObject var posterModel: PosterViewModel
       
       @State var showDetailContent: Bool = false
-      @State var activeColor: String = "Color1"
       @State var cartCount: Int = 0
       
     var body: some View {
@@ -173,7 +172,7 @@ struct DetailView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
           }
-          background {
+          .background {
                 Color("BG")
                       .opacity(showDetailContent ? 1 : 0)
                       .ignoresSafeArea()

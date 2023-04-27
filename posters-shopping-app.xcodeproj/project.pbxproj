@@ -21,6 +21,7 @@
 		5AA9DF3E29FAD52800E87603 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF3D29FAD52800E87603 /* ViewExtension.swift */; };
 		5AA9DF4029FAD9E500E87603 /* PosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF3F29FAD9E500E87603 /* PosterViewModel.swift */; };
 		5AA9DF4229FADA6400E87603 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF4129FADA6400E87603 /* DetailView.swift */; };
+		5AA9DF4429FAE13E00E87603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF4329FAE13E00E87603 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5AA9DF3D29FAD52800E87603 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		5AA9DF3F29FAD9E500E87603 /* PosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewModel.swift; sourceTree = "<group>"; };
 		5AA9DF4129FADA6400E87603 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5AA9DF4329FAE13E00E87603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			children = (
 				5AA9DF3529F9AA2E00E87603 /* CustomTabBar */,
 				5AA9DF4129FADA6400E87603 /* DetailView.swift */,
+				5AA9DF4329FAE13E00E87603 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				5AA9DF0929F9805700E87603 /* ContentView.swift in Sources */,
 				5AA9DF4229FADA6400E87603 /* DetailView.swift in Sources */,
 				5AA9DF4029FAD9E500E87603 /* PosterViewModel.swift in Sources */,
+				5AA9DF4429FAE13E00E87603 /* HomeView.swift in Sources */,
 				5AA9DF3929FAD30700E87603 /* CustomTabBarView.swift in Sources */,
 				5AA9DF0729F9805700E87603 /* PostersShoppingApp.swift in Sources */,
 				5AA9DF3E29FAD52800E87603 /* ViewExtension.swift in Sources */,

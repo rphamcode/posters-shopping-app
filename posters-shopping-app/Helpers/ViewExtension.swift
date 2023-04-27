@@ -19,4 +19,14 @@ extension View {
             
             return safeArea
       }
+      
+      @ViewBuilder
+      func setUpTab()->some View {
+            self
+                  .frame(maxWidth: .infinity, maxHeight: .infinity)
+                  .background {
+                        Color("BG")
+                              .ignoresSafeArea()
+                  }
+      }
 }

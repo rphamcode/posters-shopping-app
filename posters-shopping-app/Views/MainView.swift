@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  posters-shopping-app
 //
-//  Created by Pham on 4/26/23.
+//  Created by Pham on 4/27/23.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
       @StateObject var posterModel: PosterViewModel = .init()
       
       @Namespace var animation
@@ -51,8 +51,8 @@ struct ContentView: View {
       }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
