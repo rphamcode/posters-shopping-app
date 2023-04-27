@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AA9DF0729F9805700E87603 /* posters_shopping_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF0629F9805700E87603 /* posters_shopping_appApp.swift */; };
+		5AA9DF0729F9805700E87603 /* PostersShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF0629F9805700E87603 /* PostersShoppingApp.swift */; };
 		5AA9DF0929F9805700E87603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF0829F9805700E87603 /* ContentView.swift */; };
 		5AA9DF0B29F9805900E87603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AA9DF0A29F9805900E87603 /* Assets.xcassets */; };
 		5AA9DF0E29F9805900E87603 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AA9DF0D29F9805900E87603 /* Preview Assets.xcassets */; };
 		5AA9DF1829F9805A00E87603 /* posters_shopping_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF1729F9805A00E87603 /* posters_shopping_appTests.swift */; };
 		5AA9DF2229F9805A00E87603 /* posters_shopping_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF2129F9805A00E87603 /* posters_shopping_appUITests.swift */; };
 		5AA9DF2429F9805A00E87603 /* posters_shopping_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF2329F9805A00E87603 /* posters_shopping_appUITestsLaunchTests.swift */; };
+		5AA9DF3429F9812000E87603 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF3329F9812000E87603 /* Poster.swift */; };
+		5AA9DF3729F9AFFD00E87603 /* BottomCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9DF3629F9AFFD00E87603 /* BottomCurve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5AA9DF0329F9805700E87603 /* posters-shopping-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "posters-shopping-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AA9DF0629F9805700E87603 /* posters_shopping_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = posters_shopping_appApp.swift; sourceTree = "<group>"; };
+		5AA9DF0629F9805700E87603 /* PostersShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersShoppingApp.swift; sourceTree = "<group>"; };
 		5AA9DF0829F9805700E87603 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5AA9DF0A29F9805900E87603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AA9DF0D29F9805900E87603 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		5AA9DF1D29F9805A00E87603 /* posters-shopping-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "posters-shopping-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA9DF2129F9805A00E87603 /* posters_shopping_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = posters_shopping_appUITests.swift; sourceTree = "<group>"; };
 		5AA9DF2329F9805A00E87603 /* posters_shopping_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = posters_shopping_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5AA9DF3329F9812000E87603 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
+		5AA9DF3629F9AFFD00E87603 /* BottomCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +98,10 @@
 		5AA9DF0529F9805700E87603 /* posters-shopping-app */ = {
 			isa = PBXGroup;
 			children = (
-				5AA9DF0629F9805700E87603 /* posters_shopping_appApp.swift */,
+				5AA9DF3229F980D200E87603 /* Models */,
+				5AA9DF3129F980CC00E87603 /* Views */,
+				5AA9DF3029F980BA00E87603 /* ViewModels */,
+				5AA9DF0629F9805700E87603 /* PostersShoppingApp.swift */,
 				5AA9DF0829F9805700E87603 /* ContentView.swift */,
 				5AA9DF0A29F9805900E87603 /* Assets.xcassets */,
 				5AA9DF0C29F9805900E87603 /* Preview Content */,
@@ -125,6 +132,37 @@
 				5AA9DF2329F9805A00E87603 /* posters_shopping_appUITestsLaunchTests.swift */,
 			);
 			path = "posters-shopping-appUITests";
+			sourceTree = "<group>";
+		};
+		5AA9DF3029F980BA00E87603 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5AA9DF3129F980CC00E87603 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5AA9DF3529F9AA2E00E87603 /* CustomTabBar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5AA9DF3229F980D200E87603 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5AA9DF3329F9812000E87603 /* Poster.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5AA9DF3529F9AA2E00E87603 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5AA9DF3629F9AFFD00E87603 /* BottomCurve.swift */,
+			);
+			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AA9DF0929F9805700E87603 /* ContentView.swift in Sources */,
-				5AA9DF0729F9805700E87603 /* posters_shopping_appApp.swift in Sources */,
+				5AA9DF0729F9805700E87603 /* PostersShoppingApp.swift in Sources */,
+				5AA9DF3729F9AFFD00E87603 /* BottomCurve.swift in Sources */,
+				5AA9DF3429F9812000E87603 /* Poster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
